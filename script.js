@@ -5,6 +5,12 @@ var Counter = React.createClass({
         };
     },
 
+    decrement: function() {
+        this.setState({
+            counter: this.state.counter - 1
+        });
+    },
+
     increment: function() {
         this.setState({
             counter: this.state.counter + 1
@@ -13,6 +19,7 @@ var Counter = React.createClass({
 
     render: function() {
         return React.createElement('div', {className: 'counter'},
+            React.createElement('button', {onClick: this.decrement}, '-'),
             React.createElement('span', {}, 'Licznik ' + this.state.counter),
             React.createElement('button', {onClick: this.increment}, '+')
         );
